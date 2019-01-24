@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Christina Rogers.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -37,6 +37,23 @@ def run_test_zero_changer():
     # function.  Try to choose some unexpected things like empty lists
     # or an empty tuple, or a list with no zeros, etc.
     # -------------------------------------------------------------------------
+    # Test 2:
+    test1 = ([0, 0, 0, 0], [0], [0, 0, 0])
+    expected1 = ([1, 2, 3, 4], [5], [6, 7, 8])
+    zero_changer(test1)
+    print()
+    print('Test 2:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
+    # Test 3:
+    test1 = ([5, 6, 2], [1, 2, 6, 1, 5, 0], [4, 5], [0])
+    expected1 = ([5, 6, 2], [1, 2, 6, 1, 5, 1], [4, 5], [2])
+    zero_changer(test1)
+    print()
+    print('Test 3:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
 
 
 def zero_changer(tuple_of_lists):
@@ -64,7 +81,7 @@ def zero_changer(tuple_of_lists):
       :type tuple_of_lists: tuple of list[int]
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -72,7 +89,12 @@ def zero_changer(tuple_of_lists):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  10 minutes.
     # -------------------------------------------------------------------------
-
+    newNumber = 1
+    for list in range(len(tuple_of_lists)):
+        for number in range(len(tuple_of_lists[list])):
+            if tuple_of_lists[list][number] == 0:
+                tuple_of_lists[list][number] = newNumber
+                newNumber = newNumber + 1
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
