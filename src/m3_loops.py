@@ -46,7 +46,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ###########################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -135,7 +135,21 @@ def run_test_practice_problem3():
     # SUGGESTION: Ask an assistant to CHECK your tests to confirm
     #             that they are adequate tests!
     ###########################################################################
+    #test 15
+    actual = practice_problem3(0, 1, 1)
+    expected = [0]
+    print ()
+    print ("test 15:")
+    print('     Expected:', expected)
+    print ('     Actual:  ', actual)
 
+    #test 16
+    actual = practice_problem3(-2, 3, 0)
+    expected = [0, 1, 2]
+    print()
+    print("test 15:")
+    print('     Expected:', expected)
+    print('     Actual:  ', actual)
 
 def practice_problem3(start, n, threshold):
     """
@@ -209,7 +223,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ###########################################################################
@@ -218,8 +232,8 @@ def practice_problem3(start, n, threshold):
     #    TIME ESTIMATE:   < 15 minutes.
     ###########################################################################
     list = []
-    while len(list) < threshold:
-        print(start, threshold)
+    while len(list) < n:
+        # print(start, threshold)
         if math.cos(start) + math.sin(start) >= threshold:
             list = list + [start]
         start = start + 1
