@@ -177,7 +177,7 @@ def many_hourglasses(window, square, m, colors):
     each of which denotes a color that rosegraphics understands.
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #       We provided some tests for you (above).
     # -------------------------------------------------------------------------
     ###########################################################################
@@ -193,16 +193,24 @@ def many_hourglasses(window, square, m, colors):
     #                         a correct "hourglass" function above)
     #    TIME ESTIMATE:  20 minutes (warning: this problem is challenging)
     # -------------------------------------------------------------------------
-    squareCorner1 = rg.Point(square.center.x - square.length_of_each_side / 2,
+
+    c1 = rg.Point(square.center.x - square.length_of_each_side / 2,
                              square.center.y - square.length_of_each_side / 2)
-    squareCorner2 = rg.Point(square.center.x + square.length_of_each_side / 2,
+    c2 = rg.Point(square.center.x + square.length_of_each_side / 2,
                              square.center.y + square.length_of_each_side / 2)
-    # for k in range(m):
-    #     a = ((square.length_of_each_side) ** 2 - (square.length_of_each_side/2) ** 2) ** (1 / 2)
-    #     corner1 = rg.Point(squareCorner1.x + k*a, squareCorner1.x - k*square.length_of_each_side/2)
-    #     corner2 = rg.Point(squareCorner2.x - k*a, squareCorner2.x + k*square.length_of_each_side/2)
-    #     rectangle = rg.Rectangle(corner1, corner2)
-    #     rectangle.attach_to(window)
+    point = rg.Point(square.center.x, square.center.y)
+    radius = square.length_of_each_side/2
+    for k in range(m):
+        rectangle = rg.Rectangle(c1, c2)
+        rectangle.attach_to(window)
+        hourglass(window, k+1, point, radius, colors[k%len(colors)])
+
+        point.x = point.x + (k+3/2)*square.length_of_each_side
+        c1.x = c2.x
+        c1.y = c1.y - ((2 * radius) ** 2 - (radius) ** 2) ** (1 / 2)
+        c2.x = c2.x + (k+2)*square.length_of_each_side
+        c2.y = c2.y + ((2 * radius) ** 2 - (radius) ** 2) ** (1 / 2)
+
     window.render()
 
 
